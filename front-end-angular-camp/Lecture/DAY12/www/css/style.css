@@ -1,0 +1,12 @@
+/*! style.css © yamoo9.net, 2016 */
+body {
+    margin: 0;
+    padding: 4rem;
+}
+
+.mark {
+    border:           1px solid #7DCE0D;
+    border-radius:    4px;
+    background-color: #BAFF09;
+    font-weight:      bold;
+}

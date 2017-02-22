@@ -1,0 +1,85 @@
+/*! style.css © yamoo9.net, 2016
+
+[data-ng-cloak], .ng-clock
+  display: none !important
+
+body
+  padding-top: 70px
+
+/**
+ * --------------------------------
+ * onepiece-container
+ * ----------------------------- */
+.onepiece-container
+  ul
+    list-style: none
+    margin: 0
+    padding-left: 0
+  li
+    margin-bottom: 2rem
+    border-top: 1px solid #eee
+    padding-top: 2rem
+    overflow: hidden
+    text-overflow: ellipsis
+    height: 600px
+
+/**
+ * --------------------------------
+ * PersonListController
+ * ----------------------------- */
+.email-group
+  margin-left: 1rem
+
+// .a11y-hidden,
+// .invisible-hidden,
+// .screen-off,
+.readable-hidden
+  overflow: hidden
+  position: absolute
+  clip:     rect(0,0,0,0)
+  width:    1px
+  height:   1px
+  margin:   -1px
+  border:   0
+  padding:  0
+
+caption.readable-hidden
+  position: static
+
+
+// 테이블 활성화 색상 변수
+$table-on-color: #ffff98
+
+
+.table-on
+  background: $table-on-color
+  // .table-striped .table-on:nth-of-type(odd)
+  .table-striped &:nth-of-type(odd),
+  // .table-hover .table-on
+  .table-hover &
+    background: $table-on-color
+    // .table-striped .table-on:nth-of-type(odd):hover
+    // .table-hover .table-on:hover
+    &:hover
+      background: darken($table-on-color, 20%)
+
+
+.panel
+  dl
+    margin-bottom: 0
+  dt
+    padding-top: 1rem
+  dd
+    padding-bottom: 1rem
+    border-bottom: 1px dashed #d8d8d8
+
+    &:last-child
+      padding-bottom: 0
+      border-bottom: none
+
+  .img-frame
+    margin-top: 10px
+    border: 1px solid #c3c3c3
+    padding: 5px
+    background: #fff
+    box-shadow: 1px 1px 0 hsla(0,0%,0%,0.23)

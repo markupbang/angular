@@ -1,0 +1,67 @@
+@charset "UTF-8";
+/*! style.css © yamoo9.net, 2016 */
+[data-ng-cloak], .ng-clock {
+  display: none !important;
+}
+
+.ng-hide {
+  display: none;
+}
+
+.app .brand {
+  margin: 0;
+  padding: 1rem;
+  font-size: 1.4rem;
+  background: #82aec9;
+  color: #edf3f7;
+}
+
+/**
+ * --------------------------------
+ * .demo-list
+ * ----------------------------- */
+.demo-list {
+  margin-top: 0;
+}
+
+.demo-list h5 {
+  margin: 0;
+}
+
+.demo-list li {
+  border-bottom: 1px solid #457da0;
+  padding: 1rem;
+  background: white;
+}
+
+.demo-list .book-name {
+  color: #82aec9;
+}
+
+.demo-list .book-description {
+  color: #709cb7;
+  font-weight: 300;
+}
+
+.demo-list .book-author {
+  color: #5792b7;
+}
+
+.demo-list .book-author::before {
+  content: '( ';
+}
+
+.demo-list .book-author::after {
+  content: ' )';
+}
+
+.demo-list .book-price {
+  display: inline-block;
+  padding: 0.1rem 0.3rem;
+  font-weight: 700;
+  background: #1f3847;
+  color: #c9dce8;
+  border-radius: 0.25rem;
+}
+
+/*# sourceMappingURL=style.css.map */

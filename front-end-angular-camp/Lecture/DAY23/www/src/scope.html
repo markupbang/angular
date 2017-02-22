@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en-US" dir="ltr" class="no-js" data-ng-app="ScopeApp">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>AngularJS Scope</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+  <!-- endbower -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+</head>
+<body data-ng-cloak>
+
+<!-- 헤더 영역 -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">AngularJS Scope</a>
+    </div>
+  </div>
+</nav>
+<!--// 헤더 영역 -->
+
+<!-- 메인 리스트 영역 -->
+<main class="container">
+  <div class="row">
+    <div class="col-md-4 rootScope">
+      <div class="form-group">
+        <label for="root-scope" class="control-label">Root Scope</label>
+        <input type="text" id="root-scope" class="form-control" data-ng-model="name">
+      </div>
+      <p class="well" data-ng-bind="name"></p>
+      <hr>
+      <!-- Parent -->
+      <div class="parent" data-ng-controller="ParentController">
+        <div class="form-group">
+          <label for="parent-scope" class="control-label">Parent Scope</label>
+          <input type="text" id="parent-scope" class="form-control" data-ng-model="name">
+        </div>
+        <p class="well" data-ng-bind="name"></p>
+        <hr>
+        <!-- Child -->
+        <div class="child" data-ng-controller="ChildController">
+          <div class="form-group">
+            <label for="child-scope" class="control-label">Child Scope</label>
+            <input type="text" id="child-scope" class="form-control" data-ng-model="name">
+          </div>
+          <p class="well" data-ng-bind="name"></p>
+          <button type="button" class="btn btn-success" data-ng-click="reset()">reset</button>
+        </div>
+
+      </div>
+
+    </div>
+  </div>
+</main>
+<!--// 메인 리스트 영역 -->
+
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<!-- endbower -->
+<!-- inject:js -->
+<script src="js/app.bundle.js"></script>
+<!-- endinject -->
+</body>
+</html>

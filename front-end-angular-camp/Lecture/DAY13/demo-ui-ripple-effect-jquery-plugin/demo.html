@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>jQuery Plugin - uiRipple</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="css/demo.css">
+    <!-- jQuery 호출 -->
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <!-- jQuery 플러그인 [테마/스크립트] 호출 -->
+    <link rel="stylesheet" href="js/plugins/ui/ripple/jquery.ui.ripple.css">
+    <script src="js/plugins/ui/ripple/jquery.ui.ripple.js"></script>
+</head>
+<body>
+
+    <!-- 플러그인 데모(테스트) -->
+    <nav class="demo">
+        <ul>
+            <li><a href="#">item1</a></li>
+            <li><a href="#">item2</a></li>
+            <li><a href="#">item3</a></li>
+            <li><a href="#">item4</a></li>
+        </ul>
+    </nav>
+
+    <hr>
+
+    <ul class="demo">
+        <li><a href="#">item</a></li>
+        <li><a href="#">item</a></li>
+    </ul>
+
+<script>
+(function($){
+    'use strict';
+
+    // jquery uiRipple 플러그인 적용
+    $('.demo').uiRipple();
+
+})(this.jQuery);
+</script>
+</body>
+</html>

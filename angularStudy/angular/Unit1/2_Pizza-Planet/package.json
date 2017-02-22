@@ -1,0 +1,13 @@
+{
+  "name": "Pizza-Planet",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "server": "http-server -a localhost -p 9090 -o"
+  },
+  "author": "Markupbang <markupbang@markupbang.com>",
+  "license": "ISC",
+  "devDependencies": {
+  },
+  "dependencies": {}
+}

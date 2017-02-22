@@ -1,0 +1,53 @@
+/*! style.css © yamoo9.net, 2016
+
+[data-ng-cloak], .ng-clock
+  display: none !important
+
+.ng-hide
+  display: none
+
+$brand-color: #82aec9
+
+.app
+  .brand
+    margin: 0
+    padding: 1rem
+    font-size: 1.4rem
+    background: $brand-color
+    color: lighten($brand-color, 30%)
+
+/**
+ * --------------------------------
+ * .demo-list
+ * ----------------------------- */
+.demo-list
+  margin-top: 0
+  h5
+    margin: 0
+
+  li
+    border-bottom: 1px solid darken($brand-color, 20%)
+    padding: 1rem
+    background: lighten($brand-color, 40%)
+
+  .book-name
+    color: $brand-color
+
+  .book-description
+    color: $brand-color - #121212
+    font-weight: 300
+
+  .book-author
+    color: darken($brand-color, 12%)
+    &::before
+      content: '( '
+    &::after
+      content: ' )'
+
+  .book-price
+    display: inline-block
+    padding: 0.1rem 0.3rem
+    font-weight: 700
+    background: darken($brand-color, 45%)
+    color: lighten($brand-color, 20%)
+    border-radius: 0.25rem

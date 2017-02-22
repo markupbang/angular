@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>Javascript 생성자와 프로토타입 객체</title>
+    <script src="js/lib/es5-shim.min.js"></script>
+    <script src="js/lib/$namespace.js"></script>
+    <script src="js/yamoo9/yamoo9.dom.query.js"></script>
+    <script src="js/yamoo9/yamoo9.ui.Button.js"></script>
+</head>
+<body>
+
+    <!-- UI 컴포넌트 적용하고자 하는 문서의 요소 <- 생성자 함수 -> 객체 인스턴스 -->
+
+    <a class="my-btn" href="">is this Button?</a>
+
+    <a class="test1" href="">test1</a>
+    <a class="test2" href="">test2</a>
+    <a class="test3" href="">test3</a>
+
+    <!-- ↓ 객체 생성자(클래스)가 초기화 과정에서 처리하는 결과 -->
+
+    <!-- <a
+        class="my-btn yamoo9-ui--button"
+        role="button"
+        href="">yes! this is Button.
+    </a> -->
+
+    <script>
+        (function($){
+            'use strict';
+            // yamoo9.ui.Button 생성(또는 설정)
+            // var my_btn = new yamoo9.ui.Button('.my-btn', true);
+            var Button = $.ui.Button,
+                my_btn = Button('.my-btn', true),
+                test1  = Button('.test1', true),
+                test2  = Button('.test2', true),
+                test3  = Button('.test3', true);
+
+            my_btn.on('click', function(event) {
+                // 버튼 클릭 시, 처리할 일
+                console.log('click ME');
+                // event.preventDefault();
+            });
+
+            test1.on('mouseenter', function(e) {
+                console.log('이벤트 유형: ', e.type);
+            });
+
+            test2.on('focus', function(e) {
+                console.log('이벤트 유형: ', e.type);
+            });
+
+            test3.on('blur', function(e) {
+                console.log('이벤트 유형: ', e.type);
+            });
+
+        })(yamoo9);
+    </script>
+</body>
+</html>

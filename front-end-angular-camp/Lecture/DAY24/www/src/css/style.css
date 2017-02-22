@@ -1,0 +1,149 @@
+@charset "UTF-8";
+/*! style.css © yamoo9.net, 2016 */
+/**
+ * --------------------------------
+ * 재 사용 가능한 클래스 모듈
+ * ----------------------------- */
+.center-text {
+  text-align: center;
+}
+
+.readable-hidden {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+}
+
+caption.readable-hidden {
+  position: static;
+}
+
+/**
+ * --------------------------------
+ * AngularJS App
+ * ----------------------------- */
+[data-ng-cloak], .ng-clock {
+  display: none !important;
+}
+
+body {
+  padding-top: 70px;
+  padding-bottom: 70px;
+}
+
+/**
+ * --------------------------------
+ * PersonListController
+ * ----------------------------- */
+/**
+ * --------------------------------
+ * Button Design
+ */
+.button-order {
+  border: none;
+  padding-left: 6px;
+  padding-right: 6px;
+  background: transparent;
+}
+
+.button-order:hover {
+  background: #dadada;
+  color: #212121;
+}
+
+.button-order.on {
+  background: #111;
+  color: #fff;
+}
+
+/**
+ * --------------------------------
+ * Table Design
+ */
+.table-on {
+  background: #ffff98;
+}
+
+.table-striped .table-on:nth-of-type(odd),
+.table-hover .table-on {
+  background: #ffff98;
+}
+
+.table-striped .table-on:nth-of-type(odd):hover,
+.table-hover .table-on:hover {
+  background: #ffff32;
+}
+
+.order-toggle-button {
+  border: 1px solid #dedede;
+  background: transparent;
+}
+
+.order-toggle-button.on {
+  background: #212121;
+  color: #fff;
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+/**
+ * --------------------------------
+ * Panel Design
+ */
+.panel dl {
+  margin-bottom: 0;
+}
+
+.panel dt {
+  padding-top: 1rem;
+}
+
+.panel dd {
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #d8d8d8;
+}
+
+.panel dd:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.panel .img-frame {
+  margin-top: 10px;
+  border: 1px solid #c3c3c3;
+  padding: 5px;
+  background: #fff;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.23);
+}
+
+/**
+ * --------------------------------
+ * Scope
+ * ----------------------------- */
+.scope label {
+  color: #fff;
+  font-weight: 400;
+  letter-spacing: 0.03em;
+}
+
+.rootScope {
+  background: #34c0ff;
+  padding: 2rem;
+}
+
+.parent {
+  background: #6223e9;
+  padding: 2rem;
+}
+
+.child {
+  background: #43c36e;
+  padding: 2rem;
+}
+
+/*# sourceMappingURL=style.css.map */

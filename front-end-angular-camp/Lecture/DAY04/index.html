@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>Javascript Patterns</title>
+    <style>
+    a {
+        display: block;
+    }
+    /* 속성 선택자 */
+    a[class*="loop-assign-el-"] {
+        text-decoration: none;
+        color: #FE4940;
+    }
+    </style>
+
+    <script src="js/lib/es5-polypill.js"></script>
+    <!-- <script src="js/lib/dom-helper.js"></script> -->
+    <!-- <script src="js/main.js"></script> -->
+
+    <!-- Call dom Library Modules -->
+    <script src="js/lib/dom/modules/dom.query.js"></script>
+    <script src="js/lib/dom/modules/dom.utils.type.js"></script>
+    <script src="js/lib/dom/modules/dom.utils.string.js"></script>
+    <script src="js/lib/dom/modules/dom.each.js"></script>
+    <script src="js/lib/dom/modules/dom.css.js"></script>
+    <!-- // Call dom Library Modules -->
+
+    <script src="js/test.js"></script>
+</head>
+<body>
+
+    <a href class="anchor-element">anchor-1</a>
+    <a href class="anchor-element">anchor-2</a>
+    <a href class="anchor-element">anchor-3</a>
+    <a href class="anchor-element">anchor-4</a>
+    <a href class="anchor-element">anchor-5</a>
+    <a href class="anchor-element">anchor-6</a>
+    <a href class="anchor-element">anchor-7</a>
+    <a href class="anchor-element">anchor-8</a>
+
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>Sandbox Pattern</title>
+    <script src="js/lib/$sandbox.js"></script>
+</head>
+<body>
+
+<script>
+
+$sandbox(['ajax', 'dom'], function($) {
+    console.dir( '[ajax, dom] - $.makeRequest: ' + !!$.makeRequest );
+    console.dir( '[ajax, dom] - $.on: ' + !!$.on );
+    console.dir( '[ajax, dom] - $.query: ' + !!$.query );
+    console.log( '------------------------------------------------------' );
+});
+
+$sandbox('events', 'dom', function($) {
+    console.dir( '[events, dom] - $.makeRequest: ' + !!$.makeRequest );
+    console.dir( '[events, dom] - $.on: ' + !!$.on );
+    console.dir( '[events, dom] - $.query: ' + !!$.query );
+    console.log( '------------------------------------------------------' );
+});
+
+$sandbox([], function($) {
+    console.dir( '[] - $.makeRequest: ' + !!$.makeRequest );
+    console.dir( '[] - $.on: ' + !!$.on );
+    console.dir( '[] - $.query: ' + !!$.query );
+    console.log( '------------------------------------------------------' );
+});
+
+$sandbox('*', function($) {
+    console.dir( '* - $.makeRequest: ' + !!$.makeRequest );
+    console.dir( '* - $.on: ' + !!$.on );
+    console.dir( '* - $.query: ' + !!$.query );
+    console.log( '------------------------------------------------------' );
+});
+
+$sandbox(function($) {
+    console.dir( '$.makeRequest: ' + !!$.makeRequest );
+    console.dir( '$.on: ' + !!$.on );
+    console.dir( '*.query: ' + !!$.query );
+});
+
+</script>
+</body>
+</html>

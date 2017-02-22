@@ -1,0 +1,93 @@
+@charset "UTF-8";
+/*! style.css © yamoo9.net, 2016 */
+[data-ng-cloak], .ng-clock {
+  display: none !important;
+}
+
+body {
+  padding-top: 70px;
+}
+
+/**
+ * --------------------------------
+ * onepiece-container
+ * ----------------------------- */
+.onepiece-container ul {
+  list-style: none;
+  margin: 0;
+  padding-left: 0;
+}
+
+.onepiece-container li {
+  margin-bottom: 2rem;
+  border-top: 1px solid #eee;
+  padding-top: 2rem;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 600px;
+}
+
+/**
+ * --------------------------------
+ * PersonListController
+ * ----------------------------- */
+.email-group {
+  margin-left: 1rem;
+}
+
+.readable-hidden {
+  overflow: hidden;
+  position: absolute;
+  clip: rect(0, 0, 0, 0);
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  border: 0;
+  padding: 0;
+}
+
+caption.readable-hidden {
+  position: static;
+}
+
+.table-on {
+  background: #ffff98;
+}
+
+.table-striped .table-on:nth-of-type(odd),
+.table-hover .table-on {
+  background: #ffff98;
+}
+
+.table-striped .table-on:nth-of-type(odd):hover,
+.table-hover .table-on:hover {
+  background: #ffff32;
+}
+
+.panel dl {
+  margin-bottom: 0;
+}
+
+.panel dt {
+  padding-top: 1rem;
+}
+
+.panel dd {
+  padding-bottom: 1rem;
+  border-bottom: 1px dashed #d8d8d8;
+}
+
+.panel dd:last-child {
+  padding-bottom: 0;
+  border-bottom: none;
+}
+
+.panel .img-frame {
+  margin-top: 10px;
+  border: 1px solid #c3c3c3;
+  padding: 5px;
+  background: #fff;
+  box-shadow: 1px 1px 0 rgba(0, 0, 0, 0.23);
+}
+
+/*# sourceMappingURL=style.css.map */

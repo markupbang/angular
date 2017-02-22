@@ -1,0 +1,86 @@
+<svg id="sprite" xmlns="http://www.w3.org/2000/svg" width="96" height="48" viewBox="0 0 96 48">
+  <defs>
+    <style>
+      .cls-1 {
+        fill: #3d3d3d;
+      }
+
+      .cls-1, .cls-6, .cls-7, .cls-8 {
+        fill-opacity: 0;
+      }
+
+      .cls-2 {
+        fill: #dddbdb;
+      }
+
+      .cls-2, .cls-3, .cls-4 {
+        fill-rule: evenodd;
+      }
+
+      .cls-3 {
+        fill: #a6a6a6;
+      }
+
+      .cls-4, .cls-9 {
+        fill: #3aa9f0;
+      }
+
+      .cls-5 {
+        fill: #c9ff39;
+      }
+
+      .cls-6, .cls-7, .cls-8 {
+        fill: #f0f0f0;
+        stroke-linejoin: round;
+        stroke-width: 2px;
+      }
+
+      .cls-6 {
+        stroke: #d8d5d5;
+      }
+
+      .cls-7 {
+        stroke: #a6a6a6;
+      }
+
+      .cls-8 {
+        stroke: #3aa9f0;
+      }
+    </style>
+  </defs>
+  <rect id="sprite_guide" data-name="sprite guide" class="cls-1" width="96" height="48"/>
+  <g id="checkbox">
+    <g id="checkbox-2" data-name="checkbox">
+      <path id="shape" class="cls-2" d="M5,27H18.094a2,2,0,0,1,2,2V42a2,2,0,0,1-2,2H5a2,2,0,0,1-2-2V29A2,2,0,0,1,5,27Zm0.594,2.531H17.281V41.469H5.594V29.531Z"/>
+    </g>
+    <g id="checkbox-hover">
+      <path id="shape-2" data-name="shape" class="cls-3" d="M29.938,27H43.063a2,2,0,0,1,2,2V42a2,2,0,0,1-2,2H29.938a2,2,0,0,1-2-2V29A2,2,0,0,1,29.938,27Zm0.594,2.531H42.25V41.469H30.531V29.531Z"/>
+    </g>
+    <g id="checkbox-checked">
+      <path id="shape-3" data-name="shape" class="cls-4" d="M52.906,27H66a2,2,0,0,1,2,2V42a2,2,0,0,1-2,2H52.906a2,2,0,0,1-2-2V29A2,2,0,0,1,52.906,27ZM53.5,29.531H65.188V41.469H53.5V29.531Z"/>
+      <path id="checked" class="cls-4" d="M56.228,34.114L54.472,35.6,58.335,40.6l8.955-8.16-1.58-2.04-7.2,6.676Z"/>
+    </g>
+    <g id="checkbox-checked-focus">
+      <rect id="focus-state" class="cls-5" x="76" y="29" width="15" height="14"/>
+      <path id="shape-4" data-name="shape" class="cls-4" d="M76.906,27H90a2,2,0,0,1,2,2V42a2,2,0,0,1-2,2H76.906a2,2,0,0,1-2-2V29A2,2,0,0,1,76.906,27ZM77.5,29.531H89.188V41.469H77.5V29.531Z"/>
+      <path id="checked-2" data-name="checked" class="cls-4" d="M80.228,34.114L78.472,35.6,82.335,40.6l8.955-8.16-1.58-2.04-7.2,6.676Z"/>
+    </g>
+  </g>
+  <g id="radio">
+    <g id="radio-button">
+      <ellipse id="shape-5" data-name="shape" class="cls-6" cx="12.109" cy="11.5" rx="9.109" ry="9.5"/>
+    </g>
+    <g id="radio-button-hover">
+      <ellipse id="shape-6" data-name="shape" class="cls-7" cx="36.109" cy="11.5" rx="9.109" ry="9.5"/>
+    </g>
+    <g id="radio-button-checked">
+      <circle id="shape-7" data-name="shape" class="cls-8" cx="59.891" cy="11.5" r="9.109"/>
+      <ellipse id="checked_state" data-name="checked state" class="cls-9" cx="59.891" cy="11.5" rx="4.359" ry="4.531"/>
+    </g>
+    <g id="radio-button-checked-focus">
+      <circle id="focus-state-2" data-name="focus-state" class="cls-5" cx="83.5" cy="11.5" r="7.5"/>
+      <circle id="shape-8" data-name="shape" class="cls-8" cx="83.891" cy="11.5" r="9.109"/>
+      <ellipse id="checked_state-2" data-name="checked state" class="cls-9" cx="83.891" cy="11.5" rx="4.359" ry="4.531"/>
+    </g>
+  </g>
+</svg>

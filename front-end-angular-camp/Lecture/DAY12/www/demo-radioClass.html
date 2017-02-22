@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>Develop jQuery Plugin</title>
+    <link rel="stylesheet" href="css/a11y.css">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="js/plugins/utils/jquery.logError.js"></script>
+    <script src="js/plugins/utils/jquery.memory.js"></script>
+    <script src="js/plugins/instance/jquery.fn.radioClass.js"></script>
+</head>
+<body>
+
+<div class="button-list">
+    <button type="button">button 1</button>
+    <button type="button">button 2</button>
+    <button type="button">button 3</button>
+</div>
+
+<nav class="demo-navi">
+    <ul>
+        <li><a href="#">link 1</a></li>
+        <li><a href="#">link 2</a></li>
+        <li><a href="#">link 3</a></li>
+        <li><a href="#">link 4</a></li>
+    </ul>
+</nav>
+
+<script>
+(function(exports, $){
+    'use strict';
+
+    function marking() {
+        var e, context;
+        // e.target -> button
+        // this, e.currestTarget -> div
+        // 이벤트 위임을 사용할 때, this는 보통 이벤트를 건 대상을 가리키지만,
+        // jQuery 이벤트 위임(on 이벤트에 선택자를 설정하면) this는 선택된 요소 노드를 가리킨다.
+        // console.log(this);
+
+        // arguments는 무엇을 참조하고 있나?
+        // $.proxy() 유틸리티 메소드를 사용할 경우
+        // 3번째 인자부터 arguments에 속하게 된다.
+        // 이벤트 객체는 가장 마지막에 위치한다.
+        if (arguments.length > 1) {
+            e = arguments[arguments.length-1]; // 이벤트 객체
+            context = arguments[0];
+            // 1.
+            // 검증
+            // e.target 요소의 이름이 A라면?
+            // 기본 동작 차단
+            if ( e.target.nodeName === 'A' ) {
+                e.preventDefault();
+            }
+        } else {
+            e = arguments[0]; // 이벤트 객체
+        }
+
+        var $this = $.memory(e.target);
+        context ?
+            $this.radioClass('mark',context) :
+            $this.radioClass('mark').toggleClass('toggled');
+    }
+
+    $('.button-list').on('click', 'button', marking);
+
+    exports.marking = marking;
+})(this, this.jQuery);
+
+(function(exports, $){
+    'use strict';
+    // 간단한 해결책은 동일한 환경에 함수를 작성한다.
+    // function marking(e) {
+    //     e.preventDefault();
+    //     var $this = $.memory(e.target);
+    //     $this.radioClass('mark', 'li');
+    // }
+
+    $('nav.demo-navi').on('click', 'a', $.proxy(exports.marking, this, 'li'));
+})(this, this.jQuery);
+</script>
+</body>
+</html>

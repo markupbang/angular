@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>Javascript DOM Library - Constructor &amp; Prototype</title>
+    <style>
+        nav ul {
+            margin-top: 0;
+            margin-bottom: 0;
+            padding-left: 0;
+            list-style-type: none;
+        }
+        nav li {
+            display: inline-block;
+            margin-right: 0.625rem;
+        }
+        .btn {
+            display: inline-flex;
+            justify-conetnt: center;
+            align-items: center;
+            border: 1px solid;
+            padding: .45rem .82rem;
+            background: #aaa;
+            color: #333;
+            transition: padding-left 0.3s ease-out, padding-right 0.3s ease-in 0.3s;
+        }
+        a.btn {
+            text-decoration: none;
+        }
+        .btn.active {
+            padding-left: 2.22rem;
+            padding-right: 2.22rem;
+        }
+        .btn.primary {
+            background: #34C0FF;
+            color: #133E57;
+        }
+        .btn.round {
+            border-radius: 0.25rem;
+        }
+        .btn.rounder {
+            border-radius: 0.45rem;
+        }
+        .btn.roundest {
+            border-radius: 0.65rem;
+        }
+
+    </style>
+    <script src="js/lib/es5-shim.min.js"></script>
+    <script src="js/lib/$namespace.js"></script>
+    <script src="js/lib/dom/modules/dom.utils.type.js"></script>
+    <script src="js/lib/dom/modules/dom.utils.string.js"></script>
+    <script src="js/lib/dom/modules/dom.events.js"></script>
+    <script src="js/lib/dom/modules/dom.query.js"></script>
+    <script src="js/lib/dom/modules/dom.each.js"></script>
+    <script src="js/lib/dom/modules/dom.css.js"></script>
+</head>
+<body>
+
+    <h2>Making User Dom Library</h2>
+
+    <h3>Event Delegation</h3>
+
+    <!-- nav>ul[role=presentation]>li*>a.btn.primary[role=button] -->
+    <nav>
+        <ul role="presentation">
+            <li><a class="btn primary round" href role="button">play</a></li>
+            <li><a class="btn primary round" href role="button">pause</a></li>
+            <li><a class="btn primary round" href role="button">stop</a></li>
+            <li><a class="btn primary round" href role="button">nextFrame</a></li>
+            <li><a class="btn primary round" href role="button">prevFrame</a></li>
+        </ul>
+    </nav>
+
+<script src="js/test.js"></script>
+</body>
+</html>

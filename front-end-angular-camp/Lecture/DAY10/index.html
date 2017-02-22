@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>jQuery Each Methods - [utility, instance]</title>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+</head>
+<body>
+
+    <div id="demo">
+        <ul>
+            <li><a href="#yamoo9">야무 한글 로렘입숨.</a></li>
+            <li><a href="#modern">아름답다, 눈부신!</a></li>
+            <li><a href="#webapp">쉬지, 젊음의!</a></li>
+            <li><a href="#instructor">소리, 빛나는.</a></li>
+        </ul>
+    </div>
+
+<script>
+(function(exports, $){
+    'use strict';
+    // DOM Ready 구현된 상태이니, $().ready() 사용할 필요가 없다.
+
+    // $.each()의 배열 사용 예
+    $.each(['cup', 'phone', 'tablet'], function(idx, item){
+         // console.log( item + '!!!!');
+    });
+
+    // $.each()의 객체 사용 예
+    $.each({'name': 'jeehoon', 'nickname': 'yamoo9'}, function(key, value){
+         // console.log( key, value );
+    });
+
+    // $.each() VS $.map()
+    // $.each()와 $.map()에 callback되는 함수의 인자 순서는 반대이다.
+    // each()와 달리 map()은 처리된 결과를 반영하여 배열로 반환한다.
+    var arr = ['cup', 'phone'],
+        obj = {
+            'prop1': 'value1',
+            'prop2': 'value2'
+        },
+        number_arr = [0, 1, 1, 2, 3, 5, 8, 13, 21, 109, -20];
+
+    arr = $.each(arr, function(index, item){
+         return item + ' ' + index;
+    });
+
+    // console.log(arr); // ["cup", "phone"]
+
+    arr = $.map(arr, function(value, index){
+         return value.toUpperCase() + ' ' + index;
+    });
+
+    // console.log(arr); // ["CUP 0", "PHONE 1"]
+
+    var obj_result = $.map(obj, function(value, key) {
+        return value.replace(/value/, 'val-'); // val-1, val-2
+    });
+
+    console.log(obj_result); // [val-1, val-2]
+
+    // $.grep(o, fn, [, invert]);
+    var filtered_number_arr = $.grep(number_arr, function(value, index) {
+        console.log(value, index);
+        return (value % 2 === 0) && (value > 0); // 짝수(0보다 큰)만 필터링하여 결과를 반환
+    });
+
+    console.log( filtered_number_arr ); // [2, 8]
+    // invert 전달인자 값을 true로 설정하면 결과가 반전된다.
+    // [0, 1, 1, 3, 5, 13, 21, 109, -20]
+
+
+    // 1.
+    // 문서에서 #demo 대상을 찾아 내부의 a를 순환하여
+    // data-link-href 속성에 href 값을 할당하려면? (# 제외)
+
+    // var $demo       = $('#demo'),
+    //     $demo_links = $demo.find('a');
+
+    var $demo_links = $('#demo a');
+
+    $.each( $demo_links, function(index, el) {
+        // console.log( index, el );
+        // console.log(!!el.addClass);
+        // $(this), $(el) 사용하지 않아도 된다.
+        var $link     = $demo_links.eq(index),
+            link_href = $link.attr('href').replace(/#/, '');
+        // console.log( link_href );
+        $link
+            .attr('data-link-href', link_href)
+            // 콘텍스트를 변경해서 전달할 수 있을까? DOM 객체가 아닌, jQuery 인스턴스로 변경
+            .on('click', $.proxy(changeTextContent, $link) ); // 콘텍스트 변경 (this 참조 값 변경)
+    });
+
+    function changeTextContent(e) {
+        // 기본동작 차단
+        e.preventDefault();
+
+        // DOM 객체? jQuery 인스턴스 객체?
+        console.log(this, this.jquery);
+        // 성능 향상을 가져오는 최선의 방법 1. $.proxy() 사용
+        this.text(this.attr('data-link-href'));
+
+        // 콘텍스트란?
+        // this가 참조하는 문서 객체 === DOM 객체
+        // jQuery 메소드를 사용할 수 없다.
+        // jQuery 팩토리함수를 매번 쓰는 문제가 발생한다.
+
+
+        // this????, e.target????
+        // console.log('this:' , this); // DOM Element Node
+        // console.log('e.target:' , e.target); // This isn't jQuery Instance
+
+        // jQuery를 사용하는 경우 중 가장 안 좋은 사례
+        // $(this).text( $(this).attr('data-link-href') );
+
+        // 캐시를 하긴 했지만, 역시나 클릭할 때 마다 다시 팩토리함수를 사용해서
+        // jQuery 인스턴스를 생성해야 하기 때문에 안좋은 사례
+        // var $this = $(this);
+        // $this.text( $this.attr('data-link-href') );
+
+        // 네이티브 코드?
+        // 빠르지만.... 브라우저 호환성을 고려해야 하는 점이 매우 귀찮다.
+        // var text_value = this.getAttribute('data-link-href');
+        // this.textContent = text_value; // IE 9+
+        // this.innerHTML = text_value;
+        // if (this.textContent) { this.textContent = text_value; }
+        // else { this.innerHTML = text_value; }
+    }
+
+    // 2.
+    // #demo a 요소를 클릭하면 data-link-href 속성 값을 텍스트로 설정하려면?
+    // $demo_links.on('click', function() {
+
+    // });
+
+})(this, this.jQuery);
+</script>
+</body>
+</html>

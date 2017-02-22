@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>jQuery Advanced Techniques</title>
+    <script src="//code.jquery.com/jquery-2.2.2.min.js"></script>
+    <script src="js/jquery/static/jquery.isNumber.js"></script>
+    <script src="js/jquery/static/jquery.unique.js"></script>
+    <script src="js/jquery/static/jquery.mergeMixin.js"></script>
+    <!-- <script src="js/lecture.js"></script> -->
+    <!-- <script src="js/jquery/static/jquery.isRetina.js"></script> -->
+    <!-- <script src="js/testIsRetina.js"></script> -->
+    <!-- <script src="js/jquery/utils/begin/01-type-testing.js"></script> -->
+    <!-- <script src="js/jquery/utils/end/01-type-testing.js"></script>
+    <script src="js/01-type-check.js"></script> -->
+    <script>
+        (function($){
+            'use strict';
+
+            function init() {
+                var o = ['phone', 'pad', 'pizza'];
+                // 동적으로 요소를 생성
+                var $list = $('<ul class="y9-list">').appendTo('body');
+                $.each(o, function(index, item) {
+                    $('<li>', {
+                        'id': 'favorite-' + item,
+                        'text': item
+                    }).appendTo($list);
+                });
+                // 생성이 완료되면 collectionEls() 콜백 함수 실행
+                collectionEls();
+            }
+
+            function collectionEls() {
+                var $collection = $('.y9-list').children('li');
+                // console.log( $.type($collection), '\n', $.type($collection) === 'array' );
+                // console.log( $.type($collection) === 'array' );
+
+                // 배열로 변경
+                var collection = $.makeArray($collection);
+                // console.log( $.type(collection), '\n', $.type(collection) === 'array' );
+
+                // console.log( !!collection.each );
+                // console.log( !!collection.forEach );
+
+                // console.log( collection );
+
+                // collection.pop();
+
+                // console.log( $.inArray( document.querySelector('#favorite-pad') , collection) );
+
+                // $( collection ).each(function(index, item) {
+                //     console.log(item);
+                // });
+
+                // var $collect = $.fn.pushStack(collection);
+                // var $collect = $().pushStack(collection);
+
+                // console.log( $collect.jquery );
+
+                //
+            }
+
+            $(init);
+
+        })(this.jQuery);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>jQuery 플러그인 제작 패턴</title>
+    <script src="http://code.jquery.com/jquery.min.js"></script>
+    <!-- jQuery 라이브러리에 의존하는 플러그인 파일 -->
+    <!-- <script src="js/plugins/jquery.plugin.js"></script> -->
+    <script src="js/plugins/jquery.radioClass.js"></script>
+    <style>
+        .active {
+            background: #ff0;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- <header>
+        <div class="assign-plugin-el"></div>
+    </header>
+
+    <div class="demo">
+        <div class="assign-plugin-el"></div>
+    </div>
+
+    <div class="memo">
+        <div class="assign-plugin-el"></div>
+    </div>
+
+    <div class="assign-plugin-el"></div>
+
+    <footer>
+        <div class="assign-plugin-el"></div>
+    </footer> -->
+
+    <div class="wrapper-links">
+        <a href class="active">link-1</a>
+        <a href>link-2</a>
+        <a href>link-3</a>
+        <a href>link-4</a>
+        <a href>link-5</a>
+    </div>
+
+<!--
+<script>
+    (function(exports, $){
+        'use strict';
+        // DOM이 완성된 이후에 코드를 실행할 때
+        // 가장 빠르게 실행되는 위치
+
+        // 미션 1.
+        // 화면에 순서대로 출력할 메시지 리스트(배열)을 생성합니다.
+        var message_list = 'jQuery 플러그인. 실체는 프로토타입 객체 확장. 누구나 손쉽게 개발 가능. 우리도 할 수 있습니다. 정말로!'.split('. '),
+            $ape         = $('.assign-plugin-el');
+        // console.log( message_list );
+
+        // 선택자를 통해 수집된 jQuery 인스턴스 객체가 메시지 리스트에서
+        // 순서대로 해당 배열 원소를 가져와 텍스트로 할당하도록 설정합니다.
+
+        // jQuery 플러그인 코드 사용
+        // Case 1.
+        $ape
+            // 네이티브 for문 대신 jQuery 인스턴스 메소드 each() 사용하면
+            // 반복 구문을 체이닝 방식으로 처리할 수 있다.
+            .each(function(idx, el) {
+                // $(el).text( message_list[idx] );
+                $ape.eq(idx).text( message_list[idx] );
+                // console.group('Native Code');
+                // console.time('네이티브 코드 처리 속도');
+                // // 네이티브 코드
+                // el.textContent = message_list[idx];
+                // console.timeEnd('네이티브 코드 처리 속도');
+                // console.groupEnd();
+
+                // console.group('jQuery Code');
+                // console.time('jQuery 코드 처리 속도');
+                // // jQuery 코드
+                // $(el).text( message_list[idx] );
+                // console.timeEnd('jQuery 코드 처리 속도');
+                // console.groupEnd();
+                // console.log( idx, el, el.jquery );
+            })
+            // .text('assigned jQuery plugin Method that name is text().')
+            // 커스텀 플러그인을 연결(사용)
+            .marking({
+                'colorlist': ['#F94B5A', '#2CFB44', '#F1F91D', '#A326F8', '#29FDDF'],
+                'role': 'list'
+            })
+            // 체이닝
+            // .css('color', '#808080');
+
+        // Case 2.
+        // console.group('message_list 경우');
+        // $.each( message_list, function(idx, item) {
+            // console.log( idx, item );
+            // $ape.eq(idx).text(item);
+        // });
+        // console.groupEnd('message_list 경우');
+
+        // console.group('$ape 경우');
+        // $.each( $ape, function(idx, el) {
+            // console.log( idx, el );
+            // $ape.eq(idx).text( message_list[idx] );
+        // });
+        // console.groupEnd('$ape 경우');
+
+    })(this, this.jQuery);
+</script>
+-->
+
+<script>
+(function($){
+    'use strict';
+
+    $('.wrapper-links')
+        .children('a') // .wrapper-links a
+        .css('margin-right', '0.625rem')
+        .end() // .wrapper-links 부모 요소에 이벤트 위임
+        .on('click', function(event) {
+            // 브라우저 기본 동작 차단
+            event.preventDefault();
+            $(event.target).radioClass('active');
+        });
+
+})(this.jQuery);
+</script>
+</body>
+</html>

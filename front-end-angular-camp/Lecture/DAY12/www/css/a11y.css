@@ -1,0 +1,119 @@
+/*! a11y.css © yamoo9.net, 2016 */
+
+/**
+ * 접근성(읽기)을 준수한 화면 감춤 클래스 모듈
+ * http://snook.ca/archives/html_and_css/hiding-content-for-accessibility
+ */
+.a11y-hidden {
+    overflow: hidden;
+    position: absolute;
+    clip:     rect(0 0 0 0); /* IE 6,7 */
+    clip:     rect(0,0,0,0);
+    width:    1px;
+    height:   1px;
+    margin:   -1px;
+    border:   0;
+    padding:  0;
+}
+
+/**
+ * 접근성(읽기)을 준수한 화면 감춤 클래스 모듈 확장
+ * https://www.drupal.org/node/897638
+ */
+.a11y-hidden.focusable:focus,
+.a11y-hidden.focusable:active {
+    overflow: visible;
+    position: static;
+    clip:     auto;
+    width:    auto;
+    height:   auto;
+    margin:   0;
+}
+
+/* 스크린리더가 읽지 않도록 설정 */
+.hidden {
+    display: none !important;
+}
+
+/* 레이아웃은 유지하되, 스크린리더는 읽지 않도록 설정 */
+.invisible {
+    visibility: hidden;
+}
+
+/**
+ * ------------------------------------------------------
+ * 프린트 스타일
+ * ------------------------------------------------------
+ * 별도의 print.css를 불러오면 안되는 이유:
+ * 추가적인 HTTP 요청을 회피하는 경향을 보임
+ * http://www.phpied.com/delay-loading-your-print-css/
+ * --------------------------------------------------- */
+@media print {
+
+    /* 프린터 잉크 낭비 방지 및 속도 향상:
+     * http://www.sanbeiji.com/archives/953 */
+    *,
+    *:before,
+    *:after,
+    *:first-letter,
+    *:first-line {
+        background: transparent !important;
+        color: #000 !important;
+        box-shadow: none !important;
+        text-shadow: none !important;
+    }
+
+    a,
+    a:visited {
+        text-decoration: underline;
+    }
+
+    a[href]:after {
+        content: " (" attr(href) ")";
+    }
+
+    abbr[title]:after {
+        content: " (" attr(title) ")";
+    }
+
+    /* `#`, `javascript:` 화면에 노출되지 않도록 처리 */
+    a[href^="#"]:after,
+    a[href^="javascript:"]:after {
+        content: "";
+    }
+
+    pre,
+    blockquote {
+        border: 1px solid #999;
+        page-break-inside: avoid;
+    }
+
+    /**
+     * 테이블 프린트:
+     * http://css-discuss.incutio.com/wiki/Printing_Tables
+     */
+    thead {
+        display: table-header-group;
+    }
+
+    tr,
+    img {
+        page-break-inside: avoid;
+    }
+
+    img {
+        max-width: 100% !important;
+    }
+
+    p,
+    h2,
+    h3 {
+        orphans: 3;
+        widows: 3;
+    }
+
+    h2,
+    h3 {
+        page-break-after: avoid;
+    }
+}

@@ -1,0 +1,134 @@
+/*! style.css © yamoo9.net, 2016
+
+/**
+ * --------------------------------
+ * 재 사용 가능한 클래스 모듈
+ * ----------------------------- */
+.center-text
+ text-align: center
+
+.readable-hidden
+ overflow: hidden
+ position: absolute
+ clip:     rect(0,0,0,0)
+ width:    1px
+ height:   1px
+ margin:   -1px
+ border:   0
+ padding:  0
+
+caption.readable-hidden
+ position: static
+
+
+/**
+ * --------------------------------
+ * AngularJS App
+ * ----------------------------- */
+[data-ng-cloak], .ng-clock
+  display: none !important
+
+body
+  padding:
+    top: 70px
+    bottom: 70px
+
+/**
+ * --------------------------------
+ * PersonListController
+ * ----------------------------- */
+
+/**
+ * --------------------------------
+ * Button Design
+ */
+.button-order
+  border: none
+  padding:
+    left: 6px
+    right: 6px
+  background: transparent
+  &:hover
+    background: #dadada
+    color: #212121
+  &.on
+    background: #111
+    color: #fff
+
+/**
+ * --------------------------------
+ * Table Design
+ */
+
+// 테이블 활성화 색상 변수
+$table-on-color: #ffff98
+
+.table-on
+  background: $table-on-color
+  // .table-striped .table-on:nth-of-type(odd)
+  .table-striped &:nth-of-type(odd),
+  // .table-hover .table-on
+  .table-hover &
+    background: $table-on-color
+    // .table-striped .table-on:nth-of-type(odd):hover
+    // .table-hover .table-on:hover
+    &:hover
+      background: darken($table-on-color, 20%)
+
+
+.order-toggle-button
+  border: 1px solid #dedede
+  background: transparent
+  &.on
+    background: #212121
+    color: #fff
+    padding:
+      top: 3px
+      bottom: 3px
+
+
+/**
+ * --------------------------------
+ * Panel Design
+ */
+.panel
+  dl
+    margin-bottom: 0
+  dt
+    padding-top: 1rem
+  dd
+    padding-bottom: 1rem
+    border-bottom: 1px dashed #d8d8d8
+
+    &:last-child
+      padding-bottom: 0
+      border-bottom: none
+
+  .img-frame
+    margin-top: 10px
+    border: 1px solid #c3c3c3
+    padding: 5px
+    background: #fff
+    box-shadow: 1px 1px 0 hsla(0,0%,0%,0.23)
+
+/**
+ * --------------------------------
+ * Scope
+ * ----------------------------- */
+.scope
+  label
+    color: #fff
+    font-weight: 400
+    letter-spacing: 0.03em
+
+.rootScope
+  background: #34c0ff
+  padding: 2rem
+
+.parent
+  background: #6223e9
+  padding: 2rem
+
+.child
+  background: #43c36e
+  padding: 2rem

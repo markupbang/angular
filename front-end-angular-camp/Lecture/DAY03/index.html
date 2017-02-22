@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>Javascript Anti-Patterns &amp; DOM Helper Functions</title>
+    <!--
+    Javascript는 별도의 모듈 관리 시스템 도구가 없어서
+    낱개의 모듈 JS 파일을 HTML에서 호출하는 방법을 사용헤야 한다.
+
+    [문제점]
+
+    불러오는 순서가 바뀌게 되면....
+    또는 불러올 파일을 지우게 되면... 빼먹게 되면...
+    오류 발생!!!!!!!!
+
+    즉, 의존성 관리가 안됨...
+    -->
+    <script src="js/lib/es5-polypill.js"></script>
+    <script src="js/lib/dom-helper.js"></script>
+    <script src="js/anti-patterns.js"></script>
+</head>
+<body>
+
+</body>
+</html>

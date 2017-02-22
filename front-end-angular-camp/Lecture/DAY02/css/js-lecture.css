@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+body {
+    margin: 0;
+    padding: 3rem;
+}
+
+nav ul {
+    list-style: none;
+    margin-top: 0;
+    margin-bottom: 0;
+    padding-left: 0;
+}
+
+nav a {
+    text-decoration: none;
+}
+
+nav a[role="button"] {
+    transition: all .3s ease;
+}
+
+nav a[role="button"] {
+    display:       inline-block;
+    margin-bottom: 0.625rem;
+    margin-right:  0.625rem;
+    border:        1px solid;
+    padding:       0.325rem 0.875rem;
+    color:         #AEA28F;
+    border-radius: 0.25rem;
+}
+
+nav a[role="button"]:hover,
+nav a[role="button"]:focus {
+    border-color: #96202A;
+    color: #96202A;
+}
+
+.target-el a {
+    color: inherit;
+}
+
+.target-el li {
+    padding-top: 0.25rem;
+    padding-bottom: 0.25rem;
+    font-size: 0.875rem;
+    color: #FC4A54;
+}
+
+.target-el a:not([role]):hover,
+.target-el a:not([role]):focus {
+    padding-bottom: 0.125rem;
+    border-bottom: 0.0625rem solid;
+}
+
+.target-el a:not([role]):focus {
+    outline: none;
+}

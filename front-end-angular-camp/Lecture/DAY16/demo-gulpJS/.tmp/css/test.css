@@ -1,0 +1,14 @@
+html {
+  font-size: 100%;
+  min-height: 100vh;
+}
+
+body {
+  margin-bottom: 4rem;
+  margin-top: 2.6667rem;
+  background: -webkit-linear-gradient(top, transparent 95%, #333 95%);
+  background: linear-gradient(180deg, transparent 95%, #333 95%);
+  background-size: 0.0625rem 0.625rem;
+}
+
+/*# sourceMappingURL=test.css.map */

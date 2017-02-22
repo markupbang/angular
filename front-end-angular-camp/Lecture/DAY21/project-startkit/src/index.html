@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko-KR" dir="ltr" class="no-js" data-ng-app="DemoApp">
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Auto Validate Form Design - AngularJS Application</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <!-- <link rel="icon" type="image/x-icon" href="images/favicon.ico"> -->
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css" />
+  <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap-theme.min.css" />
+  <!-- endbower -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+</head>
+<body data-ng-cloak>
+
+<!-- 헤더 영역 -->
+<nav class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <div class="navbar-header">
+      <a href="/" class="navbar-brand">AngularJS 폼 디자인</a>
+    </div>
+  </div>
+</nav>
+<!--// 헤더 영역 -->
+
+<!-- 등록 폼 영역 -->
+<div class="main-content container" data-ng-controller="AutoRegisterController">
+  <form data-ng-submit="onSubmit()" novalidate>
+    <div class="form-group">
+      <label for="name" class="control-label">아이디 <span aria-label="필수 입력" title="필수 입력">*</span></label>
+      <input
+        type="text"
+        name="name"
+        id="name"
+        class="form-control"
+        data-ng-model="formModel.name"
+        data-ng-pattern="/^[A-Za-z0-9_]{5,10}$/"
+        data-ng-minlength="5"
+        data-ng-maxlength="10"
+        aria-describedby="name-desc"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="email" class="control-label">이메일 <span aria-label="필수 입력" title="필수 입력">*</span></label>
+      <input
+        type="email"
+        name="email"
+        id="email"
+        class="form-control"
+        data-ng-model="formModel.email"
+        placeholder="name@email.com"
+        aria-describedby="email-desc"
+        required>
+    </div>
+    <div class="form-group">
+      <label for="password" class="control-label">패스워드 <span aria-label="필수 입력" title="필수 입력">*</span></label>
+      <input
+        type="password"
+        name="password"
+        id="password"
+        class="form-control"
+        data-ng-model="formModel.password"
+        data-ng-minlength="6"
+        data-ng-maxlength="12"
+        aria-describedby="password-desc"
+        required>
+    </div>
+    <div class="form-group">
+      <button type="submit" class="btn btn-primary">전송</button>
+    </div>
+  </form>
+</div>
+<!--// 등록 폼 영역 -->
+
+<!-- bower:js -->
+<script src="bower_components/jquery/dist/jquery.js"></script>
+<script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+<script src="bower_components/angular/angular.js"></script>
+<script src="bower_components/angular-aria/angular-aria.js"></script>
+<script src="bower_components/angular-auto-validate/dist/jcs-auto-validate.js"></script>
+<!-- endbower -->
+<!-- inject:js -->
+<script src="js/app.bundle.js"></script>
+<!-- endinject -->
+</body>
+</html>

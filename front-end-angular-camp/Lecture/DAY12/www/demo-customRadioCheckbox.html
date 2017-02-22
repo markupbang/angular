@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>jQuery Instance Method - jquery.customRadioCheckbox()</title>
+    <!-- <link rel="stylesheet" href="css/a11y.css"> -->
+    <!-- <link rel="stylesheet" href="css/custom-components.css"> -->
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="js/plugins/utils/jquery.logError.js"></script>
+    <script src="js/plugins/utils/jquery.memory.js"></script>
+</head>
+<body>
+
+    <h2>사용자 정의 디자인을 반영한 라디오버튼, 체크박스 컴포넌트 디자인</h2>
+
+    <div class="demo">
+
+        <!-- <input
+            type="radio"
+            name=""
+            id=""
+            data-custom-radio
+            data-label-content="sample text">
+ -->
+        <input class="a11y-hidden custom-radio" type="radio" name="demo-radio" id="technique-html" checked>
+        <label for="technique-html">
+            <!-- ::before -->
+            <abbr title="Hyper Text Markup Language">HTML</abbr>
+        </label>
+
+        <input class="a11y-hidden custom-radio" type="radio" name="demo-radio" id="technique-css">
+        <label for="technique-css"><abbr title="Cascading Style Sheet">CSS</abbr></label>
+
+    </div>
+
+    <div class="demo">
+
+        <input class="a11y-hidden custom-checkbox" type="checkbox" name="demo-check" id="technique-js" checked>
+        <label for="technique-js">
+            <!-- ::before -->
+            <abbr title="Javascript">JS</abbr>
+        </label>
+
+        <input class="a11y-hidden custom-checkbox" type="checkbox" name="demo-check" id="technique-angular">
+        <label for="technique-angular">AngularJS</label>
+
+    </div>
+
+    <!-- <h2>SVG</h2>
+    <img src="images/svg/sprite-components.svg" alt="">
+
+    <h2>PNG</h2>
+    <img
+        src="images/png/sprite-components.png"
+        srcset="images/png/sprite-components@2x.png 2x"
+        alt=""> -->
+
+<script>
+(function(exports, $){
+    'use strict';
+
+
+
+})(this, this.jQuery);
+</script>
+</body>
+</html>

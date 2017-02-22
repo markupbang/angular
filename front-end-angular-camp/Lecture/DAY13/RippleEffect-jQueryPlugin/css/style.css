@@ -1,0 +1,22 @@
+body {
+    margin: 9rem;
+}
+
+.demo {
+    width: 10%;
+    list-style: none;
+    padding-left: 0;
+}
+
+.demo li {
+    margin-bottom: 10px;
+}
+
+.demo a {
+    display: block;
+    padding: 0.5rem 2rem;
+    background: #eee;
+    text-align: center;
+    text-decoration: none;
+    color: #333;
+}

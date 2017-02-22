@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="ko-KR">
+<head>
+    <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+    <meta charset="UTF-8">
+    <title>jQuery Ajax - getScript</title>
+    <script src="//code.jquery.com/jquery.min.js"></script>
+    <!-- 동기 통신으로 jQuery.color 모듈 호출 -->
+    <script src="jquery/jquery.memory.js"></script>
+    <!-- <script src="//code.jquery.com/color/jquery.color.js"></script> -->
+    <script>
+        (function($){
+            'use strict';
+
+            $.fx.speeds.slower = 800;
+            $.fx.speeds.fastest = 100;
+
+
+            // 비동기 호출
+            //code.jquery.com/color/jquery.color.js
+            function callColorModule() {
+                // 동적으로 박스를 하나 생성
+                var $box = $('<div>', {
+                    'class' : 'box',
+                    'text': 'box content',
+                    'attr': {
+                        // 포커스 적용
+                        'tabindex': 0
+                    },
+                    'css': {
+                        'display'         : 'flex',
+                        'justify-content' : 'center',
+                        'align-items'     : 'center',
+                        'width'           : 100,
+                        'height'          : 100,
+                        'background'      : '#ff0'
+                    },
+                    'on': {
+                        'click': changeBoxBGColor,
+                        'keydown': changeBoxBGColor
+                    }
+                })
+                .appendTo('.log');
+
+            }
+
+            function changeBoxBGColor() {
+                // $.memory() 유틸리티 메소드 추가(확장)
+                var $this = $.memory(this);
+
+                var $box, $ref_box = $.data(this, '$box');
+                if ( $ref_box ) {
+                    $box = $ref_box;
+                } else {
+                    $box = $.data(this, '$box', $(this));
+                }
+                // 비동기 통신 호출
+                $.getScript('//code.jquery.com/color/jquery.color.js', function(data) {
+                    $box.animate({
+                        'background-color': '#f00'
+                    }, 'fastest');
+                });
+                // console.log(this, this.jquery);
+                // this.style.backgroundColor = '#f00';
+                // 생성된 박스에 애니메이션을 설정
+                // 배경 색을 변경
+                // console.log( $(this) );
+                // return;
+            }
+
+            // ready() 처리와 동일
+            $(callColorModule);
+            // $(document).ready(callColorModule);
+        })(this.jQuery);
+    </script>
+</head>
+<body>
+
+
+<script>
+(function($){
+    'use strict';
+
+    // Ajax 설정
+    $.ajaxSetup({
+        // 캐시 사용 유무 설정
+        'cache': true // false
+    });
+
+    // 동적으로 body 문서에 .log 요소를 생성하고 템플릿 텍스트를 삽입합니다.
+    $('<div class="log">')
+        .text('결과가 이 곳에 출력됩니다.')
+        .appendTo('body');
+
+    // 비동기 통신
+    // 성공했을 때만 처리되는 콜백 함수 사례
+    // $.getScript('data/ajax-call.js', function(data) {
+    //     console.log(data);
+    //     $('.log').text('data/ajax-call.js 파일 로드가 성공적으로 수행되었습니다.');
+    // });
+
+    // .log 참조 (jQuery 인스턴스 객체)
+    var $log = $('.log')
+                    .append('<button type="button">click me</button>')
+                    .find('button') // 탐색한 후부터는 .log가 아닌, .log button으로 변경
+                        // .detach()
+                        .hide()
+                            .css('display', 'block')
+                            .attr('data-button', true)
+                        .show()
+                            // .appendTo('.log')
+
+                    // end()를 사용하면 대상이 복귀된다.
+                    // hide(), show()를 사용해도 복귀한다.
+                    .end();
+
+                    // detach()를 사용해서 조작을 가한 후에 end()를 사용할 경우 복귀하지 않아 parent()를 사용한다.
+                    // .parent();
+
+    // console.log( $log );
+
+    // return;
+
+    // 이벤트 위임
+    $log.on('click', 'button', function(e) {
+        // console.log(this, '\n'+e.currentTarget, '\n'+e.target);
+        // console.log( e.target.nodeName.toLowerCase() );
+        if (e.target.nodeName.toLowerCase() === 'button') {
+            fireAjax();
+        }
+    });
+
+    // 오류가 발생했을 때 처리되는 함수 사례
+    function fireAjax() {
+        $.getScript('data/ajax-call.jsx')
+            .done(function(script, jqXHR) {
+                // console.log('성공:', arguments);
+                $log.text('data/ajax-call.js 파일 로드가 성공적으로 수행되었습니다.');
+            })
+            .fail(function(jqXHR, error, msg) {
+                // console.log(jqXHR);
+                // console.log('실패:', arguments);
+                // $.getScript('data/ajax-call.js');
+                $log.text('data/ajax-call.js 파일 로드를 실패했습니다.');
+            });
+    }
+})(this.jQuery);
+</script>
+</body>
+</html>

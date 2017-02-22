@@ -1,0 +1,11 @@
+/*! skip.css © yamoo9.net, 2016 */
+body {
+    margin: 10vh 20%;
+    font: 1rem/1.5rem Helvetica;
+}
+
+.skip-to-contents {
+    position: fixed;
+    top: 0;
+    left: 10vw;
+}

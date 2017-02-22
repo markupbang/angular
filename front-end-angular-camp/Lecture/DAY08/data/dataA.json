@@ -1,0 +1,6 @@
+{
+    "name"        : "Data A",
+    "version"     : "1.0.1",
+    "description" : "This is Data A Section.",
+    "using_library": "jQuery"
+}

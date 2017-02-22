@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="ko-KR" dir="ltr" class="no-js" data-ng-app>
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <meta charset="UTF-8">
+  <title>Gulp 업무 자동화 스타트킷(Automation Tasks StartKit)</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="shortcut icon" type="image/x-icon" href="images/favicon.png">
+  <!-- bower:css -->
+  <link rel="stylesheet" href="bower_components/Materialize/bin/materialize.css" />
+  <link rel="stylesheet" href="bower_components/animate.css/animate.css" />
+  <!-- endbower -->
+  <!-- inject:css -->
+  <link rel="stylesheet" href="css/style.css">
+  <!-- endinject -->
+  <style>
+    body {
+      background: {{model.bgColor}}
+    }
+  </style>
+</head>
+<body
+  data-ng-init="model={name: 'AngularJS', version: '2.x', bgColor: '#ab8fff', isUnvisibleComponent: false}"
+>
+
+<h1 data-ng-bind="model.name"></h1>
+
+<p>사용 중인 {{ model.name }} 버전은 {{ model.version }}입니다.</p>
+
+<div class="input-field">
+  <input type="checkbox" id="user-select-visibile" data-ng-model="model.isUnvisibleComponent">
+  <label for="user-select-visibile">
+    현재 컴포넌트를 화면에서
+    <span data-ng-show="model.isUnvisibleComponent">감춤</span>
+    <span data-ng-hide="model.isUnvisibleComponent">보임</span>
+  </label>
+</div>
+
+<div class="input-field">
+  <input type="radio" name="user-choice-color" id="user-choice-color" data-ng-model="model.bgColor">
+  <label for="user-choice-color">#9200ff</label>
+</div>
+
+<div class="input-field">
+  <label for="user-input">사용자 입력 사항</label>
+  <input data-ng-model="user_input" type="text" id="user-input">
+  <!-- <input data-ng-model="user_input" type="text" id="user-input" placeholder="모델을 입력해주세요."> -->
+</div>
+
+<div data-ng-hide="model.isUnvisibleComponent">
+  <!-- <p>{{user_input}}</p> -->
+  <p data-ng-bind="user_input"></p>
+  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Expedita eveniet, neque aliquid natus rem, molestiae recusandae quam deleniti assumenda sequi!</p>
+</div>
+
+<!-- inject:js -->
+<script src="js/app.bundle.js"></script>
+<!-- endinject -->
+<!-- bower:js -->
+<script src="bower_components/Materialize/bin/materialize.js"></script>
+<!-- endbower -->
+</body>
+</html>
